@@ -152,3 +152,11 @@
 #!#
 
 # questo test blif tiene conto del test precedente, come se a ogni riga di ogni blocco di test, incrementasse il ck
+
+#?# prova: mv_p1_1 mv_p1_2 mv_p2_1 mv_p2_2 reset | wm1 wm2 min max
+#00001 | 0000
+#11100 | 0100
+#10010 | 0100
+#11100 | 0100
+#10110 | 1011
+#!#
