@@ -1,16 +1,16 @@
 .model demux_setmax_p2
 .inputs mv_p2_1 mv_p2_2 reset
 .outputs mossa_1 mossa_2 max_1 max_2
-.names mv_p2_1 mv_p2_2 mossa_1 reset
+.names mv_p2_1 mv_p2_2 reset  mossa_1
 100 1
 110 1
-.names mv_p2_1 mv_p2_2 mossa_2 reset
+.names mv_p2_1 mv_p2_2 reset  mossa_2
 010 1
 110 1
-.names mv_p2_1 mv_p2_2 max_1 reset
+.names mv_p2_1 mv_p2_2 reset  max_1
 101 1
 111 1
-.names mv_p2_1 mv_p2_2 max_2 reset
+.names mv_p2_1 mv_p2_2 reset  max_2
 011 1
 111 1
 .end
