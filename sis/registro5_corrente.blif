@@ -1,0 +1,32 @@
+.model registro5_corrente
+.inputs a1 a2 a3 a4 a5
+.outputs o1 o2 o3 o4 o5
+.subckt registro a=a1 o=o1
+.subckt registro a=a2 o=o2
+.subckt registro a=a3 o=o3
+.subckt registro a=a4 o=o4
+.subckt registro a=a5 o=o5
+.search registro1.blif
+.end
+
+#?# G2: a1 a2 | o1 o2
+#00000 | 00000
+#00001 | 00001
+#00010 | 00010
+#00011 | 00011
+#00100 | 00100
+#00101 | 00101
+#00110 | 00110
+#00111 | 00111
+#01000 | 01000
+#01001 | 01001
+#01010 | 01010
+#01011 | 01011
+#01100 | 01100
+#01101 | 01101
+#01110 | 01110
+#01111 | 01111
+#10000 | 10000
+#10001 | 10001
+#10010 | 10010
+#!#

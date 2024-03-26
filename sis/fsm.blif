@@ -1,0 +1,116 @@
+.model fsm
+.inputs wm1 wm2 min max reset
+.outputs p_1 p_2
+.start_kiss
+# numero inputs
+.i 5
+# numero outputs
+.o 2
+# numero transizioni (archi)
+.p 28
+# numero stati (nodi)
+.s 8
+# nome dello stato di reset
+.r reset
+# [inputs] [stato_corrente] [stato_prossimo] [outputs]
+----1 reset reset 00
+01000 reset van1_G1 00
+11000 reset pareggio 00
+10000 reset van1_G2 00
+11-00 pareggio pareggio 00
+00-00 pareggio pareggio 00
+01110 pareggio pareggio 01
+10110 pareggio pareggio 10
+11110 pareggio pareggio 11
+01-00 pareggio van1_G1 00
+10-00 pareggio van1_G1 00
+----1 pareggio reset 00
+11-00 van1_G1 van1_G1 00
+00-00 van1_G1 van1_G1 00
+01110 van1_G1 van1_G1 01
+11110 van1_G1 van1_G1 01
+10110 van1_G1 van1_G1 11
+01-00 van1_G1 van2_G1 00
+10-00 van1_G1 pareggio 00
+----1 van1_G1 reset 00
+11-00 van2_G1 van2_G1 00
+00-00 van2_G1 van2_G1 00
+011-0 van2_G1 van2_G1 01
+10110 van2_G1 van2_G1 01
+11110 van2_G1 van2_G1 01
+01000 van2_G1 van3_G1 00
+10-00 van2_G1 van2_G1 00
+----1 van2_G1 reset 00
+00000 van3_G1 van3_G1 00
+011-0 van3_G1 van3_G1 01
+101-0 van3_G1 van3_G1 01
+111-0 van3_G1 van3_G1 01
+----1 van3_G1 reset 00
+11-00 van1_G2 van1_G2 00
+00-00 van1_G2 van1_G2 00
+01110 van1_G2 van1_G2 11
+10110 van1_G2 van1_G2 10
+11110 van1_G2 van1_G2 10
+10-00 van1_G2 van2_G2 00
+01-00 van1_G2 pareggio 00
+----1 van1_G2 reset 00
+11-00 van2_G2 van2_G2 00
+00-00 van2_G2 van2_G2 00
+01110 van2_G2 van2_G2 10
+101-0 van2_G2 van2_G2 10
+11110 van2_G2 van2_G2 10
+10000 van2_G2 van3_G2 00
+01-00 van2_G2 van1_G2 00
+----1 van2_G2 reset 00
+00000 van3_G2 van3_G2 00
+011-0 van3_G2 van3_G2 10
+101-0 van3_G2 van3_G2 10
+111-0 van3_G2 van3_G2 10
+----1 van3_G2 reset 00
+.end_kiss
+# codificare gli stati
+.code reset 000
+.code pareggio 001
+.code van1_G1 010
+.code van2_G1 011
+.code van3_G1 100
+.code van1_G2 101
+.code van2_G2 110
+.code van3_G2 111
+# richiamare gli output dal Datapath
+#.subckt datapath wm1=wm1
+#.subckt datapath wm2=wm2
+#.subckt datapath min=min
+#.subckt datapath max=max
+#.search datapath.blif
+
+.end
+
+#?# match_1_G1win_stacco2: wm1 wm2 min max reset | p_1 p_2
+#00001 | 00
+#01000 | 00
+#01000 | 00
+#01000 | 00
+#10100 | 01
+#!#
+
+#?# match_1_G2win_stacco2: wm1 wm2 min max reset | p_1 p_2
+#00001 | 00
+#10000 | 00
+#10000 | 00
+#10000 | 00
+#01100 | 10
+#!#
+
+#?# reset: wm1 wm2 min max reset | p_1 p_2
+#00001 | 00
+#01000 | 00
+#01000 | 00
+#01000 | 00
+#10100 | 01
+#00001 | 00
+#10000 | 00
+#10000 | 00
+#10000 | 00
+#01100 | 10
+#!#
