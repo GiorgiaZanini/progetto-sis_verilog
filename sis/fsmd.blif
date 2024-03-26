@@ -2,7 +2,7 @@
 # mv_p2  (move player 2) 
 
 .model fsmd
-.inputs reset mv_p1_1 mv_p1_2 mv_p2_1 mv_p2_2
+.inputs mv_p1_1 mv_p1_2 mv_p2_1 mv_p2_2 reset
 .outputs wm1 wm2 p_1 p_2 min max
 
 .subckt datapath mv_p1_1=mv_p1_1 mv_p1_2=mv_p1_2 mv_p2_1=mv_p2_1 mv_p2_2=mv_p2_2 wm1=wm1 wm2=wm2 reset=reset  min=min max=max 
