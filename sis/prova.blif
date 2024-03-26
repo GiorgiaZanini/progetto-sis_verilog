@@ -1,0 +1,10 @@
+.model prova
+.inputs a b
+.outputs o
+.exdc
+.names a b o
+00 1
+01 1
+10 1
+11 1
+.end

@@ -1,0 +1,11 @@
+.model somma
+.inputs A B
+.outputs o c
+.names A B o
+10 1
+01 1
+# overflow -> 1 1 -> 0 resto 1 -> 0
+.names A B c
+11 1
+.end
+

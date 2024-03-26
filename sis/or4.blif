@@ -1,0 +1,17 @@
+.model or4
+.inputs A B C D
+.outputs d f o
+.names A B d
+10 1
+01 1
+11 1
+.names C D f
+10 1
+01 1
+11 1
+.names d f o
+10 1
+01 1
+11 1
+.end
+

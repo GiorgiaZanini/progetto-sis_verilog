@@ -1,0 +1,26 @@
+.model sommatore1
+.inputs x y z v
+.outputs a b c
+.names x y z v a
+1111 1
+.names x y z v b
+0011 1
+0101 1
+0110 1
+0111 1
+1001 1
+1010 1
+1011 1
+1100 1
+1101 1
+1110 1
+.names x y z v c
+0001 1
+0010 1
+0100 1
+0111 1
+1000 1
+1011 1
+1101 1
+1110 1
+.end

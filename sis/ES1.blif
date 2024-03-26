@@ -1,0 +1,16 @@
+.model ES1
+.inputs A B C
+.outputs Z
+.names A B C Z
+001 1
+100 1
+111 1
+
+.exdc 
+#per poter scrivere i don't care set, che corrispondono in output a 1
+.names A B C Z
+010 1
+101 1
+111 1
+.end
+

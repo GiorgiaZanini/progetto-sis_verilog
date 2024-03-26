@@ -1,0 +1,116 @@
+# datapath 
+
+# mv_p1  (move player 1)
+# mv_p2  (move player 2) 
+
+# wm_1   (win move player 1)
+# wm_2   (win move player 2)
+# max    (max match checker to FSM)
+# min    (min match checker to FSM)
+
+# wbg    (wire begin move)
+# wg1    (wire move player 1)
+# wg2    (wire move player 2)
+# wst1   (wire set manche player 1)
+# wst2   (wire set manche player 2)
+# rgmv1  (wire register check forward move player 1)
+# rgmv2  (wire register check forward move player 2)
+# wwm    (wire winnwr manche)
+# nrgmv1 (wire new register check forward move player 1)
+# nrgmv2 (wire new register check forward move player 2)
+# rgcm   (wire register check current manche)
+# wcount (wire counter manche)
+# wcm    (wire current manche)
+# win    (wire reset input)
+# wmin   (wire control of the min manche)
+# wmax   (wire control of the max manche)
+# wrgmx  (wire register check max manche)
+# wnmax  (wire new manche max)
+# wcmax  (wire manche max mux choice)
+
+
+.model datapath 
+.inputs reset mv_p1_1 mv_p1_2 mv_p2_1 mv_p2_2   win_1 win_2 win_3 win_4 win_5y
+.outputs wm_1_1 wm_1_2 wm_2_1 wm_2_2 min max     
+
+
+# match selector (inputs 2 bit | outputs 4 bit)
+
+.subckt demux_setmax reset=r mv_p1_1=wbg_1 mv_p1_2=wbg_2  mossa_1=wg1_1 mossa_2=wg1_2 max_1=wst1_1 max_2=wst1_2 
+.subckt demux_setmax reset=r mv_p2_1=wbg_3 mv_p2_2=wbg_4  mossa_1=wg2_1 mossa_2=wg2_2 max_1=wst2_1 max_2=wst2_2
+
+# vs (inputs 8 bit | outpus 6 bit)
+
+.subckt vs_implementato_jolly block1_1=rgmv1_1 block1_2=rgmv1_2 block2_1=rgmv2_1 block2_2=rgmv2_2 g1_1=wg1_1 g1_2=wg1_2 g2_1=wg2_1 g2_2=wg2_2  gwin_1=wwm_1 gwin_2=wwm_2 newbreack1_1=nrgmv1_1 newbreack1_2=nrgmv1_2 newbreack2_1=nrgmv2_1 newbreack2_2=nrgmv2_2
+.subckt registro2_G1 a1=nrgmv1_1 a2=nrgmv1_2  o1=rgmv1_1 o2=rgmv1_2
+.subckt registro2_G2 a1=nrgmv2_1 a2=nrgmv2_2  o1=rgmv2_1 o2=rgmv2_2
+
+# counter manche (inputs 5 bit | outputs 5 bit)
+
+.subckt contatore s1=wwm_1 s2=wwm_2 i1=rgcm_1 i2=rgcm_2 i3=rgcm_3 i4=rgcm_4 i5=rgcm_5  a=wcount_1 b=wcount_2 c=wcount_3 d=wcount_4 e=wcount_5
+.subckt mux_reset reset=r m_c1=wcount_1 m_c2=wcount_2 m_c3=wcount_3 m_c4=wcount_4 m_c5=wcount_5   m_sum1=wcm_1 m_sum2=wcm_2 m_sum3=wcm_3 m_sum4=wcm_4 m_sum5=wcm_5
+.subckt registro5_corrente a1=wcm_1 a2=wcm_2 a3=wcm_3 a4=wcm_4 a5=wcm_5  o1=rgcm_1 o2=rgcm_2 o3=rgcm_3 o4=rgcm_4 o5=rgcm_5
+
+# controls (inputs 5 bit | output 1 bit) (inputs 10 bit | outputs 5 bit)
+
+.subckt comparatore_min m1=wcount_1 m2=wcount_2 m3=wcount_3 m4=wcount_4 m5=wcount_5  o=min
+.subckt comparatore_max m1=wcount_1 m2=wcount_2 m3=wcount_3 m4=wcount_4 m5=wcount_5 x1=wrgmx_1 x2=wrgmx_2 x3=wrgmx_3 x4=wrgmx_4 x5=wrgmx_5  o=max
+
+# max manche setting (inputs 4 bit | outputs 5 bit)
+
+.subckt sum_mosse_max a1=wst1_1 a2=wst1_2 b1=wst2_1 b2=wst2_2 o1=wnmax_1 o2=wnmax_2 o3=wnmax_3 o4=wnmax_4 o5=wnmax_5
+
+.subckt mux_remembermax reset=r remember1=wrgmx_1 remember2=wrgmx_2 remember3=wrgmx_3 remember4=wrgmx_4 remember5=wrgmx_5 m_m1=wnmax_1 m_m2=wnmax_2 m_m3=wnmax_3 m_m4=wnmax_4 m_m5=wnmax_5  m_r1=wcmax_1 m_r2=wcmax_2 m_r3=wcmax_3 m_r4=wcmax_4 m_r5=wcmax_5
+.subckt registro5_max a1=wrgmx_1 a2=wrgmx_2 a3=wrgmx_3 a4=wrgmx_4 a5=wrgmx_5 o1=wcmax_1 o2=wcmax_2 o3=wcmax_3 o4=wcmax_4 o5=wcmax_5
+
+
+#search .blif player choice match  
+.search demux_setmax.blif
+.search sum_mosse_max.blif
+.search mux_remembermax.blif  
+.search registro5_max.blif
+.search comparatore_max.blif
+.search comparatore_min.blif
+#search .blif vs moves  
+.search vs_implementato_jolly.blif
+.search mux_reset.blif
+.search registro2_G1.blif
+.search registro2_G2.blif
+#search .blif count match 
+.search contatore.blif
+.search registro5_corrente.blif
+
+#input costant
+#.subckt costante0 out=win_1
+#.subckt costante0 out=win_2
+#.subckt costante0 out=win_3
+#.subckt costante0 out=win_4
+#.subckt costante0 out=win_5
+
+#.search costante0.blif
+
+
+
+#output manche
+.subckt vs_implementato_jolly gwin_1=wg1_1 gwin_2=wg1_2 wm_1_1=wg1_1 wm_1_2=wg1_2 
+.names gwin_1 gwin_2 wm_1_1 
+10 1
+11 1
+.names gwin_1 gwin_2 wm_1_2
+01 1
+11 1
+
+#output manche to fsm
+.subckt vs_implementato_jolly gwin_1=wg1_1 gwin_2=wg1_2 wm_2_1=wg1_1 wm_2_2=wg1_2 
+.names gwin_1 gwin_2 wm_2_1
+10 1
+11 1
+.names gwin_1 gwin_2 wm_2_2
+01 1
+11 1
+
+
+
+
+
+.end
