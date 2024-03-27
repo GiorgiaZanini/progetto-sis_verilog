@@ -83,12 +83,6 @@
 .code van1_G2 101
 .code van2_G2 110
 .code van3_G2 111
-# richiamare gli output dal Datapath
-#.subckt datapath wm1=wm1
-#.subckt datapath wm2=wm2
-#.subckt datapath min=min
-#.subckt datapath max=max
-#.search datapath.blif
 
 .end
 
