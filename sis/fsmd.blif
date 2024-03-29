@@ -9,10 +9,10 @@
 .subckt fsm wm1=wm1 wm2=wm2 min=min max=max reset=reset  p_1=p_1 p_2=p_2
 
 .search datapath.blif
-.search FSM_ottima.blif
+.search fsm_prova.blif
 .end
 
-#?# match_1: reset mv_p1_1 mv_p1_2 mv_p2_1 mv_p2_2 | wm1 wm2 p_1 p_2 min max
+#?# match_1: mv_p1_1 mv_p1_2 mv_p2_1 mv_p2_2 reset | wm1 wm2 p_1 p_2
 #11001 | 000000
 #11100 | 010000
 #10010 | 010000
@@ -20,7 +20,7 @@
 #10110 | 100110
 #!#
 
-#?# match_2: reset mv_p1_1 mv_p1_2 mv_p2_1 mv_p2_2 | wm1 wm2 p_1 p_2 min max
+#?# match_2: mv_p1_1 mv_p1_2 mv_p2_1 mv_p2_2 reset | wm1 wm2 p_1 p_2
 #11001 | 000000
 #10110 | 100000
 #01100 | 100000
@@ -28,7 +28,7 @@
 #11100 | 011010
 #!#
 
-#?# match_3: reset mv_p1_1 mv_p1_2 mv_p2_1 mv_p2_2 | wm1 wm2 p_1 p_2 min max
+#?# match_3: mv_p1_1 mv_p1_2 mv_p2_1 mv_p2_2 reset | wm1 wm2 p_1 p_2
 #00001 | 000000
 #10110 | 100000
 #01100 | 100000
@@ -36,7 +36,7 @@
 #11100 | 011011
 #!#
 
-#?# prova: reset mv_p1_1 mv_p1_2 mv_p2_1 mv_p2_2 | wm1 wm2 p_1 p_2
+#?# prova: mv_p1_1 mv_p1_2 mv_p2_1 mv_p2_2 reset | wm1 wm2 p_1 p_2
 #00001 | 0000
 #11100 | 0100
 #10010 | 0100
@@ -44,7 +44,7 @@
 #10110 | 1001
 #!#
 
-#?# match_4: reset mv_p1_1 mv_p1_2 mv_p2_1 mv_p2_2 | wm1 wm2 p_1 p_2
+#?# match_4: mv_p1_1 mv_p1_2 mv_p2_1 mv_p2_2 reset | wm1 wm2 p_1 p_2 
 #10111 | 0000
 #01010 | 1100
 #11110 | 1100
