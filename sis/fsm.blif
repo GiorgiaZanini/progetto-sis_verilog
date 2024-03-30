@@ -17,6 +17,7 @@
 01000 reset van1_G1 00
 11000 reset pareggio 00
 10000 reset van1_G2 00
+
 11-00 pareggio pareggio 00
 00-00 pareggio pareggio 00
 01110 pareggio pareggio 01
@@ -128,6 +129,7 @@
 #11000 | 00
 #11000 | 00
 #10000 | 00
+#00000 | 00
 #01100 | 00
 #10100 | 00
 #01100 | 00
