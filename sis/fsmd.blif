@@ -1,18 +1,22 @@
 # mv_p1  (move player 1)
 # mv_p2  (move player 2) 
 
+# m     (per controllare il contatore delle manche)
+
 .model fsmd
 .inputs mv_p1_1 mv_p1_2 mv_p2_1 mv_p2_2 reset
-.outputs wm1 wm2 p_1 p_2
+.outputs wm1 wm2 p_1 p_2  min max 
+#m1 m2 m3 m4 m5
 
-.subckt datapath mv_p1_1=mv_p1_1 mv_p1_2=mv_p1_2 mv_p2_1=mv_p2_1 mv_p2_2=mv_p2_2 wm1=wm1 wm2=wm2 reset=reset  min=min max=max 
+.subckt datapath mv_p1_1=mv_p1_1 mv_p1_2=mv_p1_2 mv_p2_1=mv_p2_1 mv_p2_2=mv_p2_2 wm1=wm1 wm2=wm2 reset=reset  min=min max=max  
+#wcount_1=m1 wcount_2=m2 wcount_3=m3 wcount_4=m4 wcount_5=m5
 .subckt fsm wm1=wm1 wm2=wm2 min=min max=max reset=reset  p_1=p_1 p_2=p_2
 
 .search datapath.blif
 .search fsm_prova.blif
 .end
 
-#?# match_1: mv_p1_1 mv_p1_2 mv_p2_1 mv_p2_2 reset | wm1 wm2 p_1 p_2
+#?# match_1: mv_p1_1 mv_p1_2 mv_p2_1 mv_p2_2 reset | wm1 wm2 p_1 p_2 min max 
 #11001 | 000000
 #11100 | 010000
 #10010 | 010000
@@ -20,7 +24,7 @@
 #10110 | 100110
 #!#
 
-#?# match_2: mv_p1_1 mv_p1_2 mv_p2_1 mv_p2_2 reset | wm1 wm2 p_1 p_2
+#?# match_2: mv_p1_1 mv_p1_2 mv_p2_1 mv_p2_2 reset | wm1 wm2 p_1 p_2 min max 
 #11001 | 000000
 #10110 | 100000
 #01100 | 100000
@@ -28,7 +32,7 @@
 #11100 | 011010
 #!#
 
-#?# match_3: mv_p1_1 mv_p1_2 mv_p2_1 mv_p2_2 reset | wm1 wm2 p_1 p_2
+#?# match_3: mv_p1_1 mv_p1_2 mv_p2_1 mv_p2_2 reset | wm1 wm2 p_1 p_2 min max 
 #00001 | 000000
 #10110 | 100000
 #01100 | 100000
@@ -65,42 +69,78 @@
 # nel match 5 aspetta di arrivare alle mache max prima di dare l'output della partita, ma seppur ha vinto sembre giocatore 2 da output pareggio
 # non sono i pareggi perché vengono contati
 
-#?# match_5: mv_p1_1 mv_p1_2 mv_p2_1 mv_p2_2 reset | wm1 wm2 p_1 p_2 
-#10101 | 0000
-#01010 | 1100
-#01010 | 1100
-#01010 | 1100
-#01010 | 1100
-#01100 | 1000
-#11010 | 1010
-#01100 | 1010
-#11010 | 1010
-#01100 | 1010
-#11010 | 1010
-#01100 | 1010
-#11010 | 1010
-#01100 | 1010
-#11010 | 1010
-#!#
+##?# match_5: mv_p1_1 mv_p1_2 mv_p2_1 mv_p2_2 reset | wm1 wm2 p_1 p_2 m1 m2 m3 m4 m5
+#10101 | 000000000
+#01010 | 110000001
+#01010 | 110000010
+#01010 | 110000011
+#01010 | 110000100
+#01100 | 100000101
+#11010 | 101000110
+#01100 | 101000111
+#11010 | 101001000
+#01100 | 101001001
+#11010 | 101001010
+#01100 | 101001011
+#11010 | 101001100
+#01100 | 101001101
+#11010 | 101001110
+##!#
 
 # match 6
 # il secondo errore dell'otuput della partita presentatosi nel match 5 non c'è
 # ma si presenta il problema del ritardo  -->  sistemare output van1 van2 da fsm
 
-#?# match_6: mv_p1_1 mv_p1_2 mv_p2_1 mv_p2_2 reset | wm1 wm2 p_1 p_2 
-#10101 | 0000
-#01010 | 1100
-#01010 | 1100
-#01010 | 1100
-#01010 | 1100
-#10010 | 0100
-#01110 | 0101
-#10010 | 0101
-#01110 | 0101
-#10010 | 0101
-#01110 | 0101
-#10010 | 0101
-#01110 | 0101
-#10010 | 0101
-#01110 | 0101
+##?# match_6: mv_p1_1 mv_p1_2 mv_p2_1 mv_p2_2 reset | wm1 wm2 p_1 p_2 m1 m2 m3 m4 m5
+#10101 | 000000000
+#01010 | 110000001
+#01010 | 110000010
+#01010 | 110000011
+#01010 | 110000100
+#10010 | 010000101
+#01110 | 010100110
+#10010 | 010100111
+#01110 | 010101000
+#10010 | 010101001
+#01110 | 010101010
+#10010 | 010101011
+#01110 | 010101100
+#10010 | 010101101
+#01110 | 010101110
+##!#
+
+#?# match_5: mv_p1_1 mv_p1_2 mv_p2_1 mv_p2_2 reset | wm1 wm2 p_1 p_2 m1 m2 m3 m4 m5
+#10101 | 000000
+#01010 | 110000
+#01010 | 110000
+#01010 | 110000
+#01010 | 110010
+#01100 | 100010
+#11010 | 101010
+#01100 | 101010
+#11010 | 101010
+#01100 | 101010
+#11010 | 101010
+#01100 | 101010
+#11010 | 101010
+#01100 | 101010
+#11010 | 101011
+#!#
+
+#?# match_6: mv_p1_1 mv_p1_2 mv_p2_1 mv_p2_2 reset | wm1 wm2 p_1 p_2 m1 m2 m3 m4 m5
+#10101 | 000000
+#01010 | 110000
+#01010 | 110000
+#01010 | 110000
+#01010 | 110010
+#10010 | 010010
+#01110 | 010110
+#10010 | 010110
+#01110 | 010110
+#10010 | 010110
+#01110 | 010110
+#10010 | 010110
+#01110 | 010110
+#10010 | 010110
+#01110 | 010111
 #!#

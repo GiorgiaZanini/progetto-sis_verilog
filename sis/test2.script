@@ -1,0 +1,17 @@
+read_blif fsmd.blif
+simulate 1 0 1 0 1
+simulate 0 1 0 1 0
+simulate 0 1 0 1 0
+simulate 0 1 0 1 0
+simulate 0 1 0 1 0
+simulate 1 0 0 1 0
+simulate 0 1 1 1 0
+simulate 1 0 0 1 0
+simulate 0 1 1 1 0
+simulate 1 0 0 1 0
+simulate 0 1 1 1 0
+simulate 1 0 0 1 0
+simulate 0 1 1 1 0
+simulate 1 0 0 1 0
+simulate 0 1 1 1 0
+quit
