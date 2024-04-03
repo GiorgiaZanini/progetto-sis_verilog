@@ -109,7 +109,7 @@
 #01110 | 010101110
 ##!#
 
-#?# match_5: mv_p1_1 mv_p1_2 mv_p2_1 mv_p2_2 reset | wm1 wm2 p_1 p_2 m1 m2 m3 m4 m5
+#?# match_5: mv_p1_1 mv_p1_2 mv_p2_1 mv_p2_2 reset | wm1 wm2 p_1 p_2 min max
 #10101 | 000000
 #01010 | 110000
 #01010 | 110000
@@ -127,7 +127,7 @@
 #11010 | 101011
 #!#
 
-#?# match_6: mv_p1_1 mv_p1_2 mv_p2_1 mv_p2_2 reset | wm1 wm2 p_1 p_2 m1 m2 m3 m4 m5
+#?# match_6: mv_p1_1 mv_p1_2 mv_p2_1 mv_p2_2 reset | wm1 wm2 p_1 p_2 min max
 #10101 | 000000
 #01010 | 110000
 #01010 | 110000
