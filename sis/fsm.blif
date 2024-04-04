@@ -24,7 +24,7 @@
 10110 pareggio pareggio 10
 11110 pareggio pareggio 11
 01-00 pareggio van1_G1 00
-10-00 pareggio van1_G1 00
+10-00 pareggio van1_G2 00
 ----1 pareggio reset 00
 
 11-00 van1_G1 van1_G1 00
@@ -42,7 +42,7 @@
 10110 van2_G1 van2_G1 01
 11110 van2_G1 van2_G1 01
 01000 van2_G1 van3_G1 00
-10-00 van2_G1 van2_G1 00
+10-00 van2_G1 van1_G1 00
 ----1 van2_G1 reset 00
 
 00000 van3_G1 van3_G1 00
