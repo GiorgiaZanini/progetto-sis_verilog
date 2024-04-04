@@ -135,8 +135,6 @@
 00111101 1
 .end
 
-# 00000000 | 110000 -> non è pareggio ma mossa non valida (se all'inizio)
-
 #?# no_blockage: block1_1 block1_2 block2_1 block2_2 g1_1 g1_2 g2_1 g2_2 | gwin_1 gwin_2 newblock1_1 newblock1_2 newblock2_1 newblock2_2
 #00000000 | 000000
 #00000001 | 000000

@@ -29,10 +29,10 @@
 
 11-00 van1_G1 van1_G1 00
 00-00 van1_G1 van1_G1 00
-01110 van1_G1 van1_G1 01
+011-0 van1_G1 van1_G1 01
 11110 van1_G1 van1_G1 01
 10110 van1_G1 van1_G1 11
-01-00 van1_G1 van2_G1 00
+01000 van1_G1 van2_G1 00
 10-00 van1_G1 pareggio 00
 ----1 van1_G1 reset 00
 
@@ -54,9 +54,9 @@
 11-00 van1_G2 van1_G2 00
 00-00 van1_G2 van1_G2 00
 01110 van1_G2 van1_G2 11
-10110 van1_G2 van1_G2 10
+101-0 van1_G2 van1_G2 10
 11110 van1_G2 van1_G2 10
-10-00 van1_G2 van2_G2 00
+10000 van1_G2 van2_G2 00
 01-00 van1_G2 pareggio 00
 ----1 van1_G2 reset 00
 

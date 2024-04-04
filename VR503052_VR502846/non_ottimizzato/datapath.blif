@@ -31,9 +31,7 @@
 
 .model datapath 
 .inputs mv_p1_1 mv_p1_2 mv_p2_1 mv_p2_2 reset
-.outputs wm1 wm2  min max     
-
-
+.outputs wm1 wm2  min max
 
 
 # match selector (inputs 2 bit | outputs 4 bit)

@@ -13,7 +13,7 @@
 .subckt fsm wm1=wm1 wm2=wm2 min=min max=max reset=reset  p_1=p_1 p_2=p_2
 
 .search datapath.blif
-.search fsm_prova.blif
+.search fsm_ottima.blif
 .end
 
 #?# match_1: mv_p1_1 mv_p1_2 mv_p2_1 mv_p2_2 reset | wm1 wm2 p_1 p_2 min max 

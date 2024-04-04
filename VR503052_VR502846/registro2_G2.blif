@@ -1,7 +1,0 @@
-.model registro2_G2
-.inputs a1 a2
-.outputs o1 o2
-.subckt registro a=a1 o=o1
-.subckt registro a=a2 o=o2
-.search registro1.blif
-.end
