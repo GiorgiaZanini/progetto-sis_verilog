@@ -1,0 +1,218 @@
+.model fsmd
+.inputs mv_p1_1 mv_p1_2 mv_p2_1 mv_p2_2 reset
+.outputs wm1 wm2 p_1 p_2
+.latch    [19] LatchOut_v5   0
+.latch    [20] LatchOut_v6   0
+.latch    [21] LatchOut_v7   0
+.latch    wcm_1 rgcm_1 re NIL 0
+.latch    wcm_2 rgcm_2 re NIL 0
+.latch    wcm_3 rgcm_3 re NIL 0
+.latch    wcm_4 rgcm_4 re NIL 0
+.latch    wcm_5 rgcm_5 re NIL 0
+.latch    nrgmv1_1 rgmv1_1 re NIL 0
+.latch    nrgmv1_2 rgmv1_2 re NIL 0
+.latch    nrgmv2_1 rgmv2_1 re NIL 0
+.latch    nrgmv2_2 rgmv2_2 re NIL 0
+.latch    wcmax_1 wrgmx_1 re NIL 0
+.latch    wcmax_2 wrgmx_2 re NIL 0
+.latch    wcmax_3 wrgmx_3 re NIL 0
+.latch    wcmax_4 wrgmx_4 re NIL 0
+.latch    wcmax_5 wrgmx_5 re NIL 0
+.names wm2 nrgmv1_1 nrgmv1_2 nrgmv2_1 nrgmv2_2 wm1
+---1- 1
+----1 1
+100-- 1
+.names mv_p1_1 mv_p1_2 rgmv1_1 rgmv1_2 rgmv2_1 rgmv2_2 wg2_2 nrgmv1_1 nrgmv2_1 \
+nrgmv2_2 [185] [221] [296] [298] [308] [337] [338] [340] wm2
+-------1---------- 1
+-1----1----1---1-- 1
+---0----0----1---1 1
+----0---0-----1--1 1
+1-0------0--01---- 1
+-1---01--0----1--- 1
+1----10-----0-1--- 1
+1-----0----10---1- 1
+-1--1-1---01--1--- 1
+.names reset wm1 wm2 min max [19] [20] [21] [306] p_1
+----11--- 1
+---1-11-- 1
+--01----1 1
+0-0-1--0- 1
+-1--1-00- 1
+.names reset wm1 wm2 min max [19] [20] [21] [313] p_2
+--1-10--- 1
+----101-- 1
+---1-001- 1
+-0-1-0--1 1
+00--1-00- 1
+.names wcount_1 wcount_2 wcount_3 min
+1-- 1
+-1- 1
+--1 1
+.names wcount_4 wcount_5 wrgmx_4 wrgmx_5 [336] max
+11111 1
+01011 1
+10101 1
+00001 1
+.names reset wm1 wm2 min max LatchOut_v5 LatchOut_v6 [20] [21] [304] [306] \
+[19]
+------0---1 1
+0-0--1----- 1
+---1-1-1--- 1
+--1--1---1- 1
+-10-0-0-0-- 1
+.names reset wm1 wm2 min max LatchOut_v5 LatchOut_v6 LatchOut_v7 [21] [304] \
+[306] [309] [313] [322] [20]
+---1--------1- 1
+---1--1---1--- 1
+-1---0------1- 1
+----------10-1 1
+00----10------ 1
+0-0---1--1---- 1
+-01-00--0----- 1
+.names wm1 min max LatchOut_v5 LatchOut_v6 LatchOut_v7 [303] [306] [309] [313] \
+[322] [21]
+-----1---1- 1
+--1-------1 1
+------0---1 1
+-----1-11-- 1
+----00-10-- 1
+00-0-----1- 1
+-1-00-----1 1
+.names mv_p2_2 reset wg2_2
+10 1
+.names wcount_5 rgcm_1 rgcm_2 [302] [339] [341] wcount_1
+-1-11- 1
+0-10-1 1
+.names wcount_1 wcount_3 rgcm_1 rgcm_2 [341] wcount_2
+0-01- 1
+-0-01 1
+.names rgcm_1 rgcm_3 [319] [341] wcount_3
+--11 1
+000- 1
+.names wcount_1 wcount_5 rgcm_1 rgcm_4 rgcm_5 [302] wcount_4
+-1---0 1
+1--10- 1
+--010- 1
+10-01- 1
+-0001- 1
+.names rgcm_1 rgcm_4 rgcm_5 [303] [339] wcount_5
+0-01- 1
+0-10- 1
+--011 1
+-0101 1
+.names mv_p1_1 rgmv1_1 wg2_2 nrgmv1_2 nrgmv2_2 [221] [296] [300] [338] \
+nrgmv1_1
+---1-0--- 1
+1-1-01--1 1
+101--111- 1
+.names rgmv1_1 rgmv1_2 wg2_2 nrgmv2_1 [185] [298] [299] [301] [308] [337] \
+[340] nrgmv1_2
+---01----1- 1
+--1-1-1-1-- 1
+0-0-01----1 1
+-00-0--1--1 1
+.names rgmv1_2 wg2_2 nrgmv2_2 [185] [296] [301] [337] nrgmv2_1
+--1-0-- 1
+-0-1--1 1
+00-1-1- 1
+.names mv_p1_1 mv_p1_2 rgmv1_1 rgmv1_2 wg2_2 [221] [296] [298] [299] [300] \
+[308] [338] nrgmv2_2
+---01011---- 1
+--0-101--1-- 1
+10--1-0----1 1
+10--1-0-1-1- 1
+.names wcount_1 reset wcm_1
+10 1
+.names wcount_2 reset wcm_2
+10 1
+.names wcount_3 reset wcm_3
+10 1
+.names wcount_4 reset wcm_4
+10 1
+.names wcount_5 reset wcm_5
+10 1
+.names mv_p2_1 mv_p2_2 reset wrgmx_1 wrgmx_2 wrgmx_3 wrgmx_4 wrgmx_5 [221] \
+wcmax_1
+0-1-----0 1
+-01-----0 1
+--01000-- 1
+--0100-0- 1
+.names mv_p1_1 mv_p1_2 reset wrgmx_2 [221] [321] wcmax_2
+---1-1 1
+1-1-1- 1
+-11-1- 1
+.names mv_p1_2 reset wrgmx_3 [321] wcmax_3
+01-- 1
+--11 1
+.names mv_p2_1 mv_p2_2 reset wrgmx_2 wrgmx_3 wrgmx_4 wrgmx_5 wcmax_5 [321] \
+wcmax_4
+-----1--1 1
+101------ 1
+1-1----1- 1
+--00010-- 1
+.names mv_p2_2 reset wrgmx_5 wcmax_1 [221] [321] wcmax_5
+--1--1 1
+11-1-- 1
+-011-- 1
+11--1- 1
+.names mv_p1_1 [340] [185]
+01 1
+.names mv_p1_1 mv_p1_2 [221]
+0- 1
+-0 1
+.names mv_p2_1 reset [296]
+0- 1
+-1 1
+.names rgmv2_1 rgmv2_2 [298]
+00 1
+.names rgmv2_1 rgmv2_2 [299]
+0- 1
+-0 1
+.names rgmv1_2 rgmv2_1 [298] [300]
+--1 1
+01- 1
+.names rgmv1_1 rgmv2_2 [298] [301]
+--1 1
+01- 1
+.names rgcm_4 rgcm_5 [302]
+0- 1
+-0 1
+.names wm1 wm2 [303]
+1- 1
+-1 1
+.names max LatchOut_v7 [304]
+1- 1
+-1 1
+.names wm1 LatchOut_v5 [306]
+11 1
+.names rgmv1_1 rgmv1_2 [308]
+00 1
+.names wm2 min [309]
+1- 1
+-1 1
+.names wm2 LatchOut_v6 [313]
+11 1
+.names wcount_4 [302] [319]
+1- 1
+-1 1
+.names reset wrgmx_1 [321]
+00 1
+.names reset LatchOut_v7 [322]
+01 1
+.names wcount_1 wcount_2 wcount_3 wrgmx_1 wrgmx_2 wrgmx_3 [336]
+1--100 1
+-11011 1
+-01001 1
+-10010 1
+.names rgmv1_1 [298] [337]
+11 1
+.names rgmv1_2 [298] [338]
+11 1
+.names rgcm_2 rgcm_3 [339]
+00 1
+.names mv_p1_2 [296] [340]
+10 1
+.names rgcm_1 rgcm_3 [341]
+01 1
+.end
