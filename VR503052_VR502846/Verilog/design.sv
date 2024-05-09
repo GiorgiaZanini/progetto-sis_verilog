@@ -4,7 +4,7 @@ module Morracinese(
   input [1:0] g2,
   input [0:0] reset, 
   output reg [1:0] manche,
-  output [1:0] partita
+  output reg [1:0] partita
 );
   
   //FSM 
@@ -22,8 +22,8 @@ module Morracinese(
   
   always @(posedge clk) begin: Updatefsm
     
-    if(reset) stato = 3'b000;
-    else stato = nextstate;
+    if(reset) status = 3'b000;
+    else status = nextstatus;
   
   end
   
@@ -74,7 +74,7 @@ module Morracinese(
           nextstatus = 3'b111;
        partita = 2'b00; 
       end
-      endcase
+   end
       
       //pareggio
       2'b11: begin
@@ -105,7 +105,7 @@ module Morracinese(
         
         if (status == 3'b011) begin 
         nextstatus = 3'b011;
-          if(manchemin = 1'b1) begin
+          if(manchemin == 1'b1) begin
             partita = 2'b01; 
           end
           else begin
@@ -115,47 +115,44 @@ module Morracinese(
     
         if (status == 3'b100) begin 
         nextstatus = 3'b100;
-          if(manchemin = 1'b1) begin
+          if(manchemin == 1'b1) begin
             partita = 2'b01; 
           end
           else begin
             partita = 2'b00;
           end 
-        end 
-      endcase
+        end
       
-    if (status == 3'b101) begin 
+      if (status == 3'b101) begin 
         nextstatus = 3'b101;
-      if(manchemin = 1'b1 && manchemax = 1'b1)begin
+      if(manchemin == 1'b1 && manchemax == 1'b1)begin
             partita = 2'b10; 
           end
           else begin
             partita = 2'b00;
           end 
-        end 
-      endcase
+        end
         
         if (status == 3'b110) begin 
         nextstatus = 3'b110;
-          if(manchemin = 1'b1 )begin
+          if(manchemin == 1'b1 )begin
             partita = 2'b10; 
           end
           else begin
             partita = 2'b00;
           end 
-        end 
-      endcase
+        end
         
       if (status == 3'b111) begin 
         nextstatus = 3'b111;
-          if(manchemin = 1'b1 )begin
+          if(manchemin == 1'b1 )begin
             partita = 2'b10; 
           end
           else begin
             partita = 2'b00;
           end 
-        end 
-      endcase
+        end
+      end
     
     
     //manche G1
@@ -170,7 +167,7 @@ module Morracinese(
           nextstatus = 3'b010;
           if(manchemax == 1'b1 && manchemin == 1'b1)begin
             partita = 2'b01;
-          else begin
+          end else begin
             partita = 2'b00;
           end 
         end
@@ -180,7 +177,8 @@ module Morracinese(
           nextstatus = 3'b011;
           if(manchemin == 1'b1)begin
             partita = 2'b01;
-          else begin
+          end
+            else begin
             partita = 2'b00;
           end 
         end
@@ -189,7 +187,8 @@ module Morracinese(
           nextstatus = 3'b100;
           if(manchemin == 1'b1)begin
             partita = 2'b01;
-          else begin
+          end
+            else begin
             partita = 2'b00;
           end 
         end
@@ -198,16 +197,18 @@ module Morracinese(
           nextstatus = 3'b100;
           if(manchemin == 1'b1)begin
             partita = 2'b01;
-          else begin
+          end
+            else begin
             partita = 2'b00;
           end 
         end
           
-         if(status == 3'b101) begin 
+        if(status == 3'b101) begin 
           nextstatus = 3'b001;
            if(manchemin == 1'b1 && manchemax == 1'b1)begin
             partita = 2'b11;
-          else begin
+           end
+            else begin
             partita = 2'b00;
           end 
         end
@@ -216,20 +217,22 @@ module Morracinese(
           nextstatus = 3'b101;
              if(manchemin == 1'b1 && manchemax == 1'b1)begin
             partita = 2'b10;
-          else begin
+          end
+            else begin
             partita = 2'b00;
           end 
         end
-        
+
          if(status == 3'b111) begin 
           nextstatus = 3'b111;
              if(manchemin == 1'b1)begin
             partita = 2'b10;
-          else begin
+             end
+            else begin
             partita = 2'b00;
           end 
         end
-     endcase
+      end
      //manche g2
         2'b10: begin   
     
@@ -242,65 +245,74 @@ module Morracinese(
           nextstatus = 3'b101;
           if(manchemax == 1'b1 && manchemin == 1'b1)begin
             partita = 2'b10;
-          else begin
+          end
+            else begin
             partita = 2'b00;
           end 
-        end 
+        end
         
           if(status == 3'b101) begin 
           nextstatus = 3'b110;
             if(manchemin == 1'b1)begin
             partita = 2'b10;
-          else begin
+          end
+            else begin
             partita = 2'b00;
           end 
-        end 
+        end
           
          if(status == 3'b110) begin 
           nextstatus = 3'b111;
            if(manchemin == 1'b1)begin
             partita = 2'b10;
-          else begin
+          end
+            else begin
             partita = 2'b00;
           end 
         end 
           
-         if(status == 3'b111) begin 
+        if(status == 3'b111) begin 
           nextstatus = 3'b111;
            if(manchemin == 1'b1)begin
             partita = 2'b10;
-          else begin
+          end
+            else begin
             partita = 2'b00;
           end 
-        end 
+        end
          
         if(status == 3'b010) begin 
           nextstatus = 3'b001;
              if(manchemax == 1'b1 && manchemin == 1'b1)begin
             partita = 2'b10;
-          else begin
+          end
+            else begin
             partita = 2'b00;
           end 
-        end 
+        end
           
-         if(status == 3'b011) begin 
+        if(status == 3'b011) begin 
           nextstatus = 3'b010;
              if(manchemax == 1'b1 && manchemin == 1'b1)begin
             partita = 2'b01;
-          else begin
+          end
+            else begin
             partita = 2'b00;
           end 
-        end 
+        end
            
            if(status == 3'b100) begin 
           nextstatus = 3'b100;
              if(manchemin == 1'b1)begin
             partita = 2'b01;
-          else begin
+            end
+              else begin
             partita = 2'b00;
           end 
-        end 
-      endcase
+        end
+      end
+    endcase  
+  end  
        
        /*Moveset:
        
@@ -369,6 +381,9 @@ module Morracinese(
            	 precg2 = 2'b10;
            end
          end
+
+        end
+  endmodule  
            
 //comportamento dei moduli 
           
@@ -379,7 +394,4 @@ la nostra FSM da in output solo e soltanto lo stato dello vittoria e tiene conto
       
 /*DATAPATH:
 mentre nel datapath da in uscita le manche e controlla le mosse bloccanti e se la manche e valida e imposta le manche massime 
-*/    
-    
-Minore di 4 manchecount entra nel terzo vantaggio 
-Maggiore di 4 manchecount appena arriva a vantaggio 2 allora ha già vinto
+*/

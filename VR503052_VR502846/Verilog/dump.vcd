@@ -1,0 +1,164 @@
+$date
+	Thu May  9 12:44:29 2024
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1s
+$end
+$scope module Testbench $end
+$var wire 2 ! partita [1:0] $end
+$var wire 2 " manche [1:0] $end
+$var reg 1 # clk $end
+$var reg 2 $ g1 [1:0] $end
+$var reg 2 % g2 [1:0] $end
+$var reg 1 & reset $end
+$var integer 32 ' tb [31:0] $end
+$var integer 32 ( vout [31:0] $end
+$upscope $end
+$enddefinitions $end
+$comment Show the parameter values. $end
+$dumpall
+$end
+#0
+$dumpvars
+b10000000000000000000000000000100 (
+b10000000000000000000000000000011 '
+1&
+b0 %
+b0 $
+0#
+bx "
+bx !
+$end
+#10
+b0 !
+b0 "
+1#
+#20
+0#
+b10 %
+b1 $
+0&
+#30
+b10 "
+1#
+#40
+0#
+b11 $
+#50
+b1 "
+1#
+#60
+0#
+#70
+b1 "
+1#
+#80
+0#
+b11 %
+#90
+1#
+#100
+0#
+b1 %
+b1 $
+#110
+1#
+#120
+b1 !
+0#
+b0 $
+1&
+#130
+b0 !
+b0 "
+1#
+#140
+0#
+b10 %
+b11 $
+0&
+#150
+b1 "
+1#
+#160
+0#
+b1 %
+#170
+b10 "
+1#
+#180
+0#
+b11 %
+b1 $
+#190
+b1 "
+1#
+#200
+0#
+b1 %
+b11 $
+#210
+b10 "
+1#
+#220
+0#
+b10 %
+b1 $
+#230
+1#
+#240
+0#
+1&
+#250
+b0 "
+1#
+#260
+0#
+b11 $
+0&
+#270
+b1 "
+1#
+#280
+0#
+b11 %
+b10 $
+#290
+b10 "
+1#
+#300
+0#
+b11 $
+1&
+#310
+b0 "
+1#
+#320
+0#
+b10 %
+b1 $
+0&
+#330
+b10 "
+1#
+#340
+0#
+b11 %
+b10 $
+#350
+b10 "
+1#
+#360
+0#
+b1 %
+b11 $
+#370
+b10 "
+1#
+#380
+0#
+b10 %
+b1 $

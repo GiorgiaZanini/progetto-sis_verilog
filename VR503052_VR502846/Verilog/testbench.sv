@@ -1,5 +1,5 @@
 module Testbench();
-  
+
   reg [1:0] g1,g2;
   reg [0:0] reset;
   reg clk;
@@ -28,9 +28,9 @@ module Testbench();
   
     //genero file
     tb=$fopen("testbench.script", "w");
-    vout=$fopen("outputs_verilog, "w");
+    vout=$fopen("outputs_verilog", "w");
     
-    $fdisplay(Tb,"read_blif FSMD.blif");
+    $fdisplay(tb,"read_blif FSMD.blif");
                 
     /*Moveset:
        
