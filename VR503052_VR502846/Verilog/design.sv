@@ -1,13 +1,10 @@
-// Code your design here
-// Code your design here
-
 module Morracinese(
   input [0:0] clk,
   input [1:0] g1,
   input [1:0] g2,
-  input [1:0] reset, 
+  input [0:0] reset, 
   output reg [1:0] manche,
-  output [1:0] partita,
+  output [1:0] partita
 );
   
   //FSM 
@@ -19,8 +16,8 @@ module Morracinese(
   reg [4:0] manchecount = 5'b00000;
   reg [0:0] manchemin = 1'b0; 
   reg [0:0] manchemax = 1'b0;
-  reg [0:0] precg1 = 2'b00;
-  reg [0:0] precg2 = 2'b00;
+  reg [1:0] precg1 = 2'b00;
+  reg [1:0] precg2 = 2'b00;
 
   
   always @(posedge clk) begin: Updatefsm
@@ -385,8 +382,4 @@ mentre nel datapath da in uscita le manche e controlla le mosse bloccanti e se l
 */    
     
 Minore di 4 manchecount entra nel terzo vantaggio 
-Maggiore di 4 manchecount appena arriva a vantaggio 2 allora ha già vinto     
-    
-    
-    
-    
+Maggiore di 4 manchecount appena arriva a vantaggio 2 allora ha già vinto

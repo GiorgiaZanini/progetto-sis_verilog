@@ -1,4 +1,3 @@
-// Code your testbench here
 module Testbench();
   
   reg [1:0] g1,g2;
@@ -299,7 +298,3 @@ module Testbench();
    end             
 
 endmodule
-                
-                
-                
-    
