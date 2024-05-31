@@ -21,18 +21,20 @@ module Morracinese(
 
   
   always @(posedge clk) begin: Updatefsm   
+
     if(reset == 1) begin 
       status = 3'b000;
       partita = 2'b00;
     end else begin
       status = nextstatus;
       partita = partita;
+      
     end
   end
   
   //FSM 
  
-  always @(manche, status, manchemax,manchemin,reset,partita) begin: FSM 
+  always @(manche, status, manchemax,manchemin,partita) begin: FSM 
     /*
     reset = 000
     pareggio = 001
@@ -48,19 +50,19 @@ module Morracinese(
       nextstatus = status;
     end 
     else begin 
-      if (status == 3'b001 && ( manchemin == 1'b1 && manchemax == 1'b1))begin
+      if (nextstatus == 3'b001 && ( manchemin == 1'b1 && manchemax == 1'b1))begin
         partita = 2'b11;
-      end else if (status == 3'b010 && (manchemin == 1'b1 && manchemax == 1'b1))begin
+      end else if (nextstatus == 3'b010 && (manchemin == 1'b1 && manchemax == 1'b1))begin
         partita = 2'b01;
-      end else if (status == 3'b011 && (manchemin == 1'b1)) begin 
+      end else if (nextstatus == 3'b011 && (manchemin == 1'b1)) begin 
         partita = 2'b01; 
-      end else if (status == 3'b100 && (manchemin == 1'b1)) begin 
+      end else if (nextstatus == 3'b100 && (manchemin == 1'b1)) begin 
         partita = 2'b01;
-      end else if (status == 3'b101 && (manchemin == 1'b1 && manchemax == 1'b1))begin
+      end else if (nextstatus == 3'b101 && (manchemin == 1'b1 && manchemax == 1'b1))begin
         partita = 2'b10;
-      end else if (status == 3'b110 && (manchemin == 1'b1)) begin 
+      end else if (nextstatus == 3'b110 && (manchemin == 1'b1)) begin 
         partita = 2'b10; 
-      end else if (status == 3'b111 && (manchemin == 1'b1)) begin 
+      end else if (nextstatus == 3'b111 && (manchemin == 1'b1)) begin 
         partita = 2'b10;
       end
       

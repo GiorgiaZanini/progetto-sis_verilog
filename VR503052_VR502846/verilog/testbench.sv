@@ -167,28 +167,30 @@ module Testbench();
                 $fdisplay(tb, "simulate %b %b %b %b %b", primo[1], primo[0], secondo[1], secondo[0],reset);
     $fdisplay(vout, "Outputs: %b %b %b %b", manche[1], manche[0], partita[1], partita[0]);
     // manche 4
-    // forbici vs sasso
-    // manche g2
-    // g2 + 2
-    primo = 2'b11;
-    secondo = 2'b01; 
-                
+    // carta vs sasso
+    // manche g1
+    // g2 + 1
+    primo = 2'b10;
+    secondo = 2'b01;
+    
     #20
-                $display("primo: %b secondo: %b manche: %b partita: %b", primo, secondo, manche, partita);
+    
+                   $display("primo: %b secondo: %b manche: %b partita: %b", primo, secondo, manche, partita);
                 $fdisplay(tb, "simulate %b %b %b %b %b", primo[1], primo[0], secondo[1], secondo[0],reset);
     $fdisplay(vout, "Outputs: %b %b %b %b", manche[1], manche[0], partita[1], partita[0]);
     // manche 5
-    // sasso vs carta
-    // manche g2
-    // g2 + 2
+    // sasso vs forbici
+    // manche g1
+    // pareggio
     primo = 2'b01;
-    secondo = 2'b10;   
-                
+    secondo = 2'b11;
+    
+    
     #20
                    $display("primo: %b secondo: %b manche: %b partita: %b", primo, secondo, manche, partita);
                 $fdisplay(tb, "simulate %b %b %b %b %b", primo[1], primo[0], secondo[1], secondo[0],reset);
     $fdisplay(vout, "Outputs: %b %b %b %b", manche[1], manche[0], partita[1], partita[0]);
-    //play vinta: player g2 vantaggio 3 
+    //play vinta: player g1 vantaggio 1 e manchemax 
                 
      
     // play 3
@@ -294,6 +296,68 @@ module Testbench();
                 $fdisplay(tb, "simulate %b %b %b %b %b", primo[1], primo[0], secondo[1], secondo[0],reset);
     $fdisplay(vout, "Outputs: %b %b %b %b", manche[1], manche[0], partita[1], partita[0]);
     //play vinta: player g2 vantaggio 3 
+    
+    
+    // play 5
+    reset = 1'b1;
+
+    // manchemax = 5
+    primo = 2'b00;
+    secondo = 2'b01;
+
+    #20
+    $display("play 5");
+               $display("primo: %b secondo: %b manche: %b partita: %b", primo, secondo, manche, partita);
+                $fdisplay(tb, "simulate %b %b %b %b %b", primo[1], primo[0], secondo[1], secondo[0],reset);
+    $fdisplay(vout, "Outputs: %b %b %b %b", manche[1], manche[0], partita[1], partita[0]);
+    // manche 1
+    // carta vs forbice
+    // manche g2
+    // g2 + 1
+    reset = 1'b0;
+    primo = 2'b10;
+    secondo = 2'b11;          
+                
+                
+    #20
+               $display("primo: %b secondo: %b manche: %b partita: %b", primo, secondo, manche, partita);
+                $fdisplay(tb, "simulate %b %b %b %b %b", primo[1], primo[0], secondo[1], secondo[0],reset);
+    $fdisplay(vout, "Outputs: %b %b %b %b", manche[1], manche[0], partita[1], partita[0]);
+    // manche 2
+    // forbice vs sasso
+    // manche g2
+    // g2 + 2
+    primo = 2'b11;
+    secondo = 2'b01;             
+                
+    #20
+                 $display("primo: %b secondo: %b manche: %b partita: %b", primo, secondo, manche, partita);
+                $fdisplay(tb, "simulate %b %b %b %b %b", primo[1], primo[0], secondo[1], secondo[0],reset);
+    $fdisplay(vout, "Outputs: %b %b %b %b", manche[1], manche[0], partita[1], partita[0]);
+    // manche 3
+    // sasso vs forbici
+    // manche g2
+    // g2 + 1
+    primo = 2'b01;
+    secondo = 2'b11;           
+                
+    #20
+               $display("primo: %b secondo: %b manche: %b partita: %b", primo, secondo, manche, partita);
+                $fdisplay(tb, "simulate %b %b %b %b %b", primo[1], primo[0], secondo[1], secondo[0],reset);
+    $fdisplay(vout, "Outputs: %b %b %b %b", manche[1], manche[0], partita[1], partita[0]);
+    // manche 4
+    // forbici vs sasso
+    // manche g2
+    // g2 + 2
+    primo = 2'b11;
+    secondo = 2'b01;   
+                
+    #20
+                   $display("primo: %b secondo: %b manche: %b partita: %b", primo, secondo, manche, partita);
+                $fdisplay(tb, "simulate %b %b %b %b %b", primo[1], primo[0], secondo[1], secondo[0],reset);
+    $fdisplay(vout, "Outputs: %b %b %b %b", manche[1], manche[0], partita[1], partita[0]);
+    //play vinta: player g2 vantaggio 3 
+    
                 
     $fdisplay( tb, "quit");
     $fclose(tb);            
@@ -302,3 +366,7 @@ module Testbench();
    end             
 
 endmodule
+                
+                
+                
+    
