@@ -48,60 +48,60 @@ module Morracinese(
     
     if (manche == 2'b00) begin 
       nextstatus = status;
-    end 
-    else begin 
-      if (nextstatus == 3'b001 && ( manchemin == 1'b1 && manchemax == 1'b1))begin
-        partita = 2'b11;
-      end else if (nextstatus == 3'b010 && (manchemin == 1'b1 && manchemax == 1'b1))begin
-        partita = 2'b01;
-      end else if (nextstatus == 3'b011 && (manchemin == 1'b1)) begin 
-        partita = 2'b01; 
-      end else if (nextstatus == 3'b100 && (manchemin == 1'b1)) begin 
-        partita = 2'b01;
-      end else if (nextstatus == 3'b101 && (manchemin == 1'b1 && manchemax == 1'b1))begin
-        partita = 2'b10;
-      end else if (nextstatus == 3'b110 && (manchemin == 1'b1)) begin 
-        partita = 2'b10; 
-      end else if (nextstatus == 3'b111 && (manchemin == 1'b1)) begin 
-        partita = 2'b10;
+    end else begin 
+
+      if (manchemin == 1'b1) begin
+        if (nextstatus == 3'b001 && manchemax == 1'b1)begin
+          partita = 2'b11;
+        end else if (nextstatus == 3'b010 && manchemax == 1'b1)begin
+          partita = 2'b01;
+        end else if (nextstatus == 3'b011 ) begin 
+          partita = 2'b01; 
+        end else if (nextstatus == 3'b100 ) begin 
+          partita = 2'b01;
+        end else if (nextstatus == 3'b101 && manchemax == 1'b1)begin
+          partita = 2'b10;
+        end else if (nextstatus == 3'b110 ) begin 
+          partita = 2'b10; 
+        end else if (nextstatus == 3'b111 ) begin 
+          partita = 2'b10;
+        end
       end
       
-   case(status)
-      3'b000: begin
-        
-        if(manche == 2'b01) begin
-            nextstatus = 3'b010;
-        end else if (manche == 2'b10) begin
-            nextstatus = 3'b101;
-        end else if (manche == 2'b11) begin
-            nextstatus = 3'b001;
-        end
-      end 
-        
+      case(status)
+        3'b000: begin
+          
+          if(manche == 2'b01) begin
+              nextstatus = 3'b010;
+          end else if (manche == 2'b10) begin
+              nextstatus = 3'b101;
+          end else if (manche == 2'b11) begin
+              nextstatus = 3'b001;
+          end
+        end 
+          
         3'b001: begin
+          if(manche == 2'b01) begin
+              nextstatus = 3'b010;
+          end else if(manche == 2'b10) begin
+              nextstatus = 3'b101;
+          end else if(manche == 2'b11) begin
+              nextstatus = 3'b001;
+          end
+        end 
         
-        if(manche == 2'b01) begin
-            nextstatus = 3'b010;
-        end else if(manche == 2'b10) begin
-            nextstatus = 3'b101;
-        end else if(manche == 2'b11) begin
-            nextstatus = 3'b001;
-        end
-       end 
-       
         3'b010: begin
-        
-        if(manche == 2'b01) begin
-            nextstatus = 3'b011;
-        end else if(manche == 2'b10) begin
-            nextstatus = 3'b001;
-        end else if(manche == 2'b11) begin
-            nextstatus = 3'b010;
+          
+          if(manche == 2'b01) begin
+              nextstatus = 3'b011;
+          end else if(manche == 2'b10) begin
+              nextstatus = 3'b001;
+          end else if(manche == 2'b11) begin
+              nextstatus = 3'b010;
+          end
         end
-       end
-         
+          
         3'b011: begin
-       
           if(manche == 2'b01) begin
             nextstatus = 3'b100;
           end else if(manche == 2'b10) begin
@@ -112,120 +112,118 @@ module Morracinese(
         end  
         
         3'b100: begin
-   
-         if(manche == 2'b01) begin
-            nextstatus = 3'b100;
-         end else if(manche == 2'b10) begin
-            nextstatus = 3'b011;
-         end else if(manche == 2'b11) begin
+          if(manche == 2'b01) begin
+              nextstatus = 3'b100;
+          end else if(manche == 2'b10) begin
+              nextstatus = 3'b011;
+          end else if(manche == 2'b11) begin
             nextstatus = 3'b100;
           end
         end
           
         3'b101: begin
           
-         if(manche == 2'b01) begin
-            nextstatus = 3'b001;
-         end else if(manche == 2'b10) begin
-            nextstatus = 3'b110;
-         end else if(manche == 2'b11) begin
-            nextstatus = 3'b101;
-         end
+          if(manche == 2'b01) begin
+              nextstatus = 3'b001;
+          end else if(manche == 2'b10) begin
+              nextstatus = 3'b110;
+          end else if(manche == 2'b11) begin
+              nextstatus = 3'b101;
+          end
         end
-         
+        
         3'b110 : begin 
           
-           if(manche == 2'b01) begin
+          if(manche == 2'b01) begin
             nextstatus = 3'b101;
-         end else if(manche == 2'b10) begin
+          end else if(manche == 2'b10) begin
             nextstatus = 3'b111;
-         end else if(manche == 2'b11) begin
+          end else if(manche == 2'b11) begin
             nextstatus = 3'b110;
-         end
+          end
         end
         
         3'b111 : begin
           
           if(manche == 2'b01) begin
             nextstatus = 3'b110;
-         end else if(manche == 2'b10) begin
-            nextstatus = 3'b111;
-         end else if(manche == 2'b11) begin
-            nextstatus = 3'b111;
-         end
+          end else if(manche == 2'b10) begin
+              nextstatus = 3'b111;
+          end else if(manche == 2'b11) begin
+              nextstatus = 3'b111;
+          end
         end
       endcase
-    end
+    end  
   end  
   
   always @(manchecount) begin
+    
     if (manchecount == mancheobb) begin
-             manchemax = 1'b1;
+      manchemax = 1'b1;
     end 
+
     if (manchecount == 5'b00100) begin
       manchemin = 1'b1;
     end 
+
   end
        
-       /*Moveset:
-       
-       sasso = 01
-       carta = 10
-       forbice = 11 
-       
-       */
-        always @(posedge clk) begin: Datapath
-         if (reset) begin
-           manche = 2'b00;
-           manchemin = 1'b0;
-           manchemax = 1'b0;
-           manchecount = 5'b00000;
-           precg1 = 2'b00;
-           precg2 = 2'b00;
-           mancheobb = 5'b00100 + {primo,secondo};
-         end 
-         else begin 
-           
-           
-           
-           if(primo == precg1 || secondo == precg2 || primo == 2'b00 || secondo == 2'b00) begin
-             manche = 2'b00;
-           end
-           else begin
-           	 manchecount++;
-             if( primo == 2'b01 && secondo == 2'b11 )begin
-               manche = 2'b01;
-               precg1 = 2'b01;
-               precg2 = 2'b00;
-             end else if ( primo == 2'b11 && secondo == 2'b01 ) begin
-               manche = 2'b10;
-               precg2 = 2'b01;
-               precg1 = 2'b00;
-             end else if ( primo == 2'b11 && secondo == 2'b10 ) begin
-               precg2 = 2'b00;
-               manche = 2'b01;
-               precg1 = 2'b11;
-             end else if ( primo == 2'b10 && secondo == 2'b11 ) begin
-               precg1 = 2'b00;
-               manche = 2'b10;
-               precg2 = 2'b11;
-             end else if ( primo == 2'b10 && secondo == 2'b01 ) begin
-               precg2 = 2'b00;
-               manche = 2'b01;
-               precg1 = 2'b10;
-             end else if ( primo == 2'b01 && secondo == 2'b10 ) begin
-               precg1 = 2'b00;
-               manche = 2'b10;
-               precg2 = 2'b10;
-             end else if( primo == secondo ) begin
-               manche = 2'b11;
-               precg1 = 2'b00;
-               precg2 = 2'b00;
-             end
-           end
-         end
+  /*Moveset:
+  
+  sasso = 01
+  carta = 10
+  forbice = 11 
+  
+  */
+  always @(posedge clk) begin: Datapath
+    if (reset) begin
+      manche = 2'b00;
+      manchemin = 1'b0;
+      manchemax = 1'b0;
+      manchecount = 5'b00000;
+      precg1 = 2'b00;
+      precg2 = 2'b00;
+      mancheobb = 5'b00100 + {primo,secondo};
+    end else begin 
+      
+      if(primo == precg1 || secondo == precg2 || primo == 2'b00 || secondo == 2'b00) begin
+        manche = 2'b00;
+      end else begin
+        manchecount++;
+        if( primo == 2'b01 && secondo == 2'b11 )begin
+          manche = 2'b01;
+          precg1 = 2'b01;
+          precg2 = 2'b00;
+        end else if ( primo == 2'b11 && secondo == 2'b01 ) begin
+          manche = 2'b10;
+          precg2 = 2'b01;
+          precg1 = 2'b00;
+        end else if ( primo == 2'b11 && secondo == 2'b10 ) begin
+          precg2 = 2'b00;
+          manche = 2'b01;
+          precg1 = 2'b11;
+        end else if ( primo == 2'b10 && secondo == 2'b11 ) begin
+          precg1 = 2'b00;
+          manche = 2'b10;
+          precg2 = 2'b11;
+        end else if ( primo == 2'b10 && secondo == 2'b01 ) begin
+          precg2 = 2'b00;
+          manche = 2'b01;
+          precg1 = 2'b10;
+        end else if ( primo == 2'b01 && secondo == 2'b10 ) begin
+          precg1 = 2'b00;
+          manche = 2'b10;
+          precg2 = 2'b10;
+        end else if( primo == secondo ) begin
+          manche = 2'b11;
+          precg1 = 2'b00;
+          precg2 = 2'b00;
         end
-  endmodule  
+      end
+    end
+  end
+endmodule  
            
 //comportamento dei moduli 
           
